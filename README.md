@@ -1,2 +1,2 @@
 # cmaes_catkin
-Catkin library evolutionary optimization library
+Catkin Covariance Matrix Adaptation Evolution Strategy library.
