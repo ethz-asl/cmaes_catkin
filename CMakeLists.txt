@@ -11,9 +11,9 @@ file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 ExternalProject_Add(cmaes_src
   GIT_REPOSITORY git@github.com:beniz/libcmaes.git
   UPDATE_COMMAND ""
-  CONFIGURE_COMMAND cd ../cmaes_src && ./autogen.sh && ./configure --enable-onlylib --prefix=${CATKIN_DEVEL_PREFIX}
-  BUILD_COMMAND cd ../cmaes_src && make -j 8
-  INSTALL_COMMAND cd ../cmaes_src && make install
+  CONFIGURE_COMMAND cd ../cmaes_src && mkdir build && cd build
+  BUILD_COMMAND cd ../cmaes_src/build && cmake .. -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX} && make -j8
+  INSTALL_COMMAND cd ../cmaes_src/build && sudo make install
 )
 
 cs_add_library(${PROJECT_NAME} src/dependency_tracker.cc)
