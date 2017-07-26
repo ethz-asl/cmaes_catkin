@@ -8,6 +8,9 @@ include(ExternalProject)
 
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 
+add_definitions(-DEIGEN_DONT_VECTORIZE=1)
+add_definitions(-DEIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT=1)
+
 ExternalProject_Add(cmaes_src
   GIT_REPOSITORY git@github.com:beniz/libcmaes.git
   UPDATE_COMMAND ""
